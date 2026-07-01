@@ -42,10 +42,22 @@ To enable automatic upload to Dropbox:
 2. Create a new app with "Full Dropbox" scope
 3. Enable `files.content.write` and `files.metadata.write` permissions
 4. Generate an access token
-5. Add your token to `medipipe/take1.py`:
-```python
-DROPBOX_ACCESS_TOKEN = "your_token_here"
+
+5. Set your access token as an environment variable:
+
+**macOS/Linux:**
+```bash
+export DROPBOX_ACCESS_TOKEN="your_token_here"
+python medipipe/take1.py
 ```
+
+**Or add to your shell profile (~/.zshrc or ~/.bash_profile):**
+```bash
+echo 'export DROPBOX_ACCESS_TOKEN="your_token_here"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+All friends running this code will use your Dropbox token (if you share it), so all videos upload to your research folder automatically.
 
 ## Usage
 
